@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded&display=swap");
+
+*,
+*:before,
+*:after {
+  color-scheme: dark light;
+}
+
+form {
+  font-size: 0rem;
+}
+form>* {
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: currentColor;
+  opacity: unset;
+}
+input[type="number"]:not(:where(:hover, :focus)) {
+  -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  transition: .2s linear opacity;
+}
+input:not(:where(:hover, :focus))::-webkit-outer-spin-button,
+input:not(:where(:hover, :focus))::-webkit-inner-spin-button {
+  opacity: 0;
+  appearance: none;
+}
+
+select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.date {
+  /* size */
+  font-size: 20pt;
+  height: 1.5em;
+  line-height: 1.5;
+  box-sizing: border-box;
+
+  /* shape */
+  border: 0;
+  border-radius: 1em;
+  padding-inline: 0.67ch;
+  margin-inline: 0.2ch;
+
+  box-shadow: 2px 2px 10px -5px;
+
+  font-family: "Unbounded", sans-serif;
+
+  position: relative;
+
+  text-align: center;
+}
+
+.date.year {
+  width: 5.33ch;
+}
+
+.selectwrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.selectwrapper:after {
+  transition: .2s linear opacity;
+  content: "";
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg id="arrow" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><style>path{fill:black}@media(prefers-color-scheme:dark){path{fill:white}}</style><path d="M4 10.127L12 18.127L20 10.127H4Z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: calc(100% - .5ch) 50%;
+  background-size: 16px;
+  pointer-events: none;
+  user-select: none;
+  display: inline-block;
+}
+
+.selectwrapper:where(:has(select:where(:hover, :focus)), :hover, :focus-within):after {
+  opacity: 1;
+}
+
+/* center the form element relative to parent */
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+html {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  min-width: min(640px, 80vw);
+  max-width: max(640px, 80vw);
+}
+
+
